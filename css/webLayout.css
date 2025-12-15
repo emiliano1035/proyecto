@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Header con efecto */
+#header {
+    background: linear-gradient(135deg, #8B0000 0%, #FF4500 100%);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+    margin-bottom: 2rem;
+}
+
+#header h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FFD700;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #FFD700, 0 0 40px #FFD700;
+    }
+}
+
+/* Navegación moderna */
+.navBar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 15px;
+    margin: 0 2rem 2rem 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.navBar li {
+    list-style: none;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #FFD700;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    background: rgba(139, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: 2px solid transparent;
+}
+
+.navBar a:hover {
+    background: rgba(224, 67, 10, 0.8);
+    border-color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Contenedor principal con grid mejorado */
+.flex-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Cards/Cuadros de separación - ESTILOS PRINCIPALES */
+.flex-container > div {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo al hover */
+.flex-container > div::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 215, 0, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s;
+}
+
+.flex-container > div:hover::before {
+    left: 100%;
+}
+
+.flex-container > div:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(255, 69, 0, 0.4),
+        0 0 20px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+/* Títulos de las cards */
+.flex-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.flex-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FF4500);
+    border-radius: 2px;
+}
+
+/* Párrafos y listas */
+.flex-container p {
+    margin-top: 1rem;
+}
+
+.flex-container li {
+    list-style: none;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.flex-container li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+/* Footer moderno */
+footer {
+    background: linear-gradient(135deg, #421e1e 0%, #f1551c 100%);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 15px rgba(209, 219, 62, 0.4);
+}
+
+footer p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .flex-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .navBar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    #header h1 {
+        font-size: 1.8rem;
+    }
+}
